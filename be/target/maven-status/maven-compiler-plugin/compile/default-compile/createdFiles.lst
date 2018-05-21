@@ -1,0 +1,4 @@
+edu/utfpr/model/pojo/Fruta.class
+edu/utfpr/view/FrutaJSON.class
+edu/utfpr/model/FrutaModel.class
+edu/utfpr/controller/FrutasController.class
