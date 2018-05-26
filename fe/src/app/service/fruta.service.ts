@@ -15,4 +15,10 @@ export class FrutaService {
       };
       return this.http.get('/fruta', options);
   }
+
+  set(name: string): any {
+      let params = (new HttpParams()).set('nome', name)
+                                     .set('method', 'adicionar');
+      return this.http.post('/fruta', params);
+  }
 }

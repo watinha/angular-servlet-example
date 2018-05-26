@@ -39,4 +39,20 @@ describe('FrutaService', () => {
       httpTestingController.verify();
   }));
 
+  it('should send fruits data to the server', inject([FrutaService], (service: FrutaService) => {
+    const name: string = "abobrinha",
+          json_message = { message: "OK"};
+
+    service.set(name).subscribe((data) => {
+        expect(data).toBe(json_message);
+    });
+
+    let req = httpTestingController.expectOne('/fruta');
+    req.flush(json_message);
+    expect(req.request.method).toBe('POST');
+    expect(req.request.body + "").toEqual("nome=abobrinha&method=adicionar"); // to transform to string
+
+    httpTestingController.verify();
+  }));
+
 });
